@@ -5,6 +5,6 @@ __pycache__/
 
 video/full.mp4
 assets/*.mp4
-Outputs/*.mp4
+Outputs/clean/*.mp4
 
 *.log
