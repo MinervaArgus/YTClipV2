@@ -1,0 +1,22 @@
+{
+  "clips": [
+    {
+      "source": "/assets/clip-01.mp4",
+      "title": "Fastest Hero XP Method",
+      "hook": "The most broken way to level up right now!",
+      "durationInFrames": 745
+    },
+    {
+      "source": "/assets/clip-02.mp4",
+      "title": "Infinite Weapon XP Glitch",
+      "hook": "Kill enemies infinitely for weapon XP!",
+      "durationInFrames": 512
+    },
+    {
+      "source": "/assets/clip-03.mp4",
+      "title": "Spell XP Guide",
+      "hook": "The secret to leveling spells fast!",
+      "durationInFrames": 880
+    }
+  ]
+}

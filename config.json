@@ -1,0 +1,39 @@
+{
+  "elevenlabsVoiceId": "default_voice_id",
+  "renderer": "remotion",
+  "ollama": {
+    "host": "http://127.0.0.1:11434",
+    "model": "gemma4:31b"
+  },
+  "remotion": {
+    "entry": "remotion/index.ts",
+    "compositionId": "YTShortComposition"
+  },
+  "surfagent": {
+    "host": "http://localhost:3456",
+    "searchResultLimit": 10,
+    "scrollPasses": 6
+  },
+  "research": {
+    "defaultQuery": "",
+    "excludeShorts": true,
+    "excludeLive": true,
+    "rankCount": 5
+  },
+  "download": {
+    "cookiesFromBrowser": "firefox",
+    "remoteComponents": "ejs:github",
+    "jsRuntime": "node",
+    "directClipDownload": true,
+    "maxHeight": 1080
+  },
+  "music": {
+    "style": "procedural-funk",
+    "minVolume": 0.15,
+    "maxVolume": 0.18,
+    "sourceAudioWeight": 1,
+    "fadeInSeconds": 0.7,
+    "lowpassHz": 3500,
+    "highpassHz": 70
+  }
+}

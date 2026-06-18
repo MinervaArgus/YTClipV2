@@ -1,0 +1,25 @@
+{
+  "name": "ytclipv2",
+  "version": "0.1.0",
+  "description": "Reusable YouTube clipping pipeline",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "pipeline": "node main.js",
+    "transcript": "python python/transcript.py",
+    "select": "node scripts/select-clips.js",
+    "extract": "node scripts/extract.js",
+    "render": "node scripts/render.js",
+    "og-tts": "node scripts/add-og-tts.js",
+    "music": "node scripts/add-music.js",
+    "research": "node scripts/research-videos.js",
+    "rank": "node scripts/rank-videos.js"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.459",
+    "dotenv": "^16.4.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "4.0.459"
+  }
+}

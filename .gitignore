@@ -1,0 +1,10 @@
+.env
+node_modules/
+venv/
+__pycache__/
+
+video/full.mp4
+assets/*.mp4
+Outputs/*.mp4
+
+*.log

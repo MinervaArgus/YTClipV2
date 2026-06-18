@@ -1,0 +1,46 @@
+{
+  "query": "gaming podcast",
+  "rankedAt": "2026-05-11T03:31:08.371Z",
+  "recommended": [
+    {
+      "rank": 1,
+      "url": "https://www.youtube.com/watch?v=8-OP15Rggos",
+      "title": "Caseoh | Jynxzi Podcast #1",
+      "channel": "Jynxzi Podcast",
+      "reason": "Features two high-energy, viral personalities known for loud reactions and comedy, ideal for short-form clips.",
+      "clipPotentialScore": 9.8
+    },
+    {
+      "rank": 2,
+      "url": "https://www.youtube.com/watch?v=o3gbXDjNWyI",
+      "title": "Dan Houser: GTA, Red Dead Redemption, Rockstar, Absurd & Future of Gaming | Lex Fridman Podcast #484",
+      "channel": "Lex Fridman",
+      "reason": "High-authority guest (Rockstar co-founder) providing dense industry insights and insider stories on massive franchises.",
+      "clipPotentialScore": 9.5
+    },
+    {
+      "rank": 3,
+      "url": "https://www.youtube.com/watch?v=3Q3rC6xhQdc",
+      "title": "The TOP 10 Games of ALL TIME | State of the Arc Podcast",
+      "channel": "Resonant Arc",
+      "reason": "Ranking format is highly clippable; each rank provides a natural payoff and point of debate.",
+      "clipPotentialScore": 9.2
+    },
+    {
+      "rank": 4,
+      "url": "https://www.youtube.com/watch?v=lE94gPi_UqI",
+      "title": "An entire generation just stopped buying games",
+      "channel": "Legendary Drops",
+      "reason": "Strong controversial hook and industry critique likely to generate high engagement and debate in shorts.",
+      "clipPotentialScore": 8.8
+    },
+    {
+      "rank": 5,
+      "url": "https://www.youtube.com/watch?v=fSL_79HUG-I",
+      "title": "Nintendo Raises prices, Valve realized its 2026, XBOX DID NOTHING The BEST gaming podcast 588",
+      "channel": "The Best ACG Gaming Podcast",
+      "reason": "Contains multiple controversial topics and strong opinions on major gaming brands.",
+      "clipPotentialScore": 8.5
+    }
+  ]
+}

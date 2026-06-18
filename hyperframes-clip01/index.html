@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --w: 1080px;
+        --h: 1920px;
+        --caption-size: 74px;
+        --caption-top: 66%;
+        --caption-width: 94%;
+        --hot-color: #8ee7ff;
+        --hot-glow: rgba(142, 231, 255, 0.26);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: var(--w);
+        height: var(--h);
+        overflow: hidden;
+        background: #000;
+        font-family:
+          "Anton", "Impact", "Arial Black", "Segoe UI", "Inter", sans-serif;
+      }
+      #root {
+        position: relative;
+        width: var(--w);
+        height: var(--h);
+        overflow: hidden;
+        background: radial-gradient(circle at 15% 18%, #1c274f 0%, #090d1a 45%, #040507 100%);
+      }
+      .layer {
+        position: absolute;
+        inset: 0;
+      }
+      .accent {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        mix-blend-mode: screen;
+        opacity: 0.7;
+      }
+      .accent.a {
+        background: radial-gradient(circle at 30% 30%, rgba(120, 216, 255, 0.18), rgba(0,0,0,0) 62%);
+      }
+      .accent.b {
+        background: radial-gradient(circle at 70% 70%, rgba(160, 131, 255, 0.16), rgba(0,0,0,0) 60%);
+      }
+      .clip-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: saturate(1.08) contrast(1.05);
+      }
+      .vignette {
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.18),
+          rgba(0, 0, 0, 0.08) 22%,
+          rgba(0, 0, 0, 0.32)
+        );
+      }
+      .caption {
+        position: absolute;
+        left: 50%;
+        width: var(--caption-width);
+        transform: translateX(-50%);
+        text-align: center;
+        line-height: 1.06;
+        font-size: var(--caption-size);
+        font-weight: 900;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #fff;
+        text-shadow:
+          -4px -4px 0 #000,
+          4px -4px 0 #000,
+          -4px 4px 0 #000,
+          4px 4px 0 #000,
+          0 0 12px rgba(255, 255, 255, 0.2);
+      }
+      .caption.hot {
+        color: var(--hot-color);
+        text-shadow:
+          -4px -4px 0 #1a1a1a,
+          4px -4px 0 #1a1a1a,
+          -4px 4px 0 #1a1a1a,
+          4px 4px 0 #1a1a1a,
+          0 0 10px var(--hot-glow);
+      }
+      .meme {
+        position: absolute;
+        min-width: 180px;
+        max-width: 420px;
+        border-radius: 18px;
+        padding: 12px 18px;
+        border: 3px solid #fff;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.52);
+        font-size: 36px;
+        font-weight: 800;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1;
+        text-shadow: 0 2px 0 #000;
+        box-shadow:
+          0 0 0 3px rgba(0, 0, 0, 0.22),
+          0 10px 20px rgba(0, 0, 0, 0.25);
+      }
+      .meme.blue {
+        border-color: #71f2ff;
+        background: rgba(5, 31, 77, 0.72);
+      }
+      .meme.green {
+        border-color: #67ffae;
+        background: rgba(7, 49, 26, 0.72);
+      }
+      .meme.violet {
+        border-color: #d3a2ff;
+        background: rgba(44, 18, 74, 0.72);
+      }
+      .meme.amber {
+        border-color: #ffc17a;
+        background: rgba(59, 34, 6, 0.72);
+      }
+      .sticker {
+        position: absolute;
+        font-size: 88px;
+        filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.4));
+      }
+      .boom {
+        position: absolute;
+        top: 52%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 180px;
+        font-weight: 900;
+        color: #fff;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="clip-subtle"
+      data-start="0"
+      data-duration="60"
+      data-width="1080"
+      data-height="1920"
+    >
+      <video
+        id="video-base"
+        class="clip layer clip-video"
+        data-start="0"
+        data-duration="60"
+        data-track-index="0"
+        src="assets/clip-01.mp4"
+        playsinline
+        muted
+      ></video>
+      <audio
+        id="audio-base"
+        class="clip"
+        data-start="0"
+        data-duration="60"
+        data-track-index="1"
+        src="assets/clip-01.mp4"
+      ></audio>
+
+      <div id="vignette" class="clip layer vignette" data-start="0" data-duration="60" data-track-index="2"></div>
+      <div id="accent-a" class="clip accent a" data-start="0" data-duration="60" data-track-index="3"></div>
+      <div id="accent-b" class="clip accent b" data-start="0" data-duration="60" data-track-index="4"></div>
+      
+      <div id="c1" class="clip caption hot" data-start="0.35" data-duration="59.17" data-track-index="10" style="top: var(--caption-top)">
+        I&#39;M IRREPLACEABLE
+      </div>
+      
+      <div id="m1" class="clip meme blue" data-start="15" data-duration="2.5" data-track-index="12" style="right: 7%; top: 14%">
+        CONFIDENCE OR DELUSION?
+      </div>
+      <div id="m2" class="clip meme violet" data-start="37.2" data-duration="2.4" data-track-index="12" style="left: 7%; top: 20%">
+        I&#39;M IRREPLACEABLE.
+      </div>
+      
+      <div id="s1" class="clip sticker" data-start="24" data-duration="1.5" data-track-index="13" style="left: 82%; top: 56%">
+        ✨
+      </div>
+      <div id="s2" class="clip sticker" data-start="49.2" data-duration="1.5" data-track-index="13" style="left: 10%; top: 54%">
+        😮
+      </div>
+      <div id="boom" class="clip boom" data-start="59.00" data-duration="0.92" data-track-index="20">CLEAN CUT</div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      ["#c1"].forEach((id) => {
+        const el = document.querySelector(id);
+        const start = Number(el.dataset.start);
+        const duration = Number(el.dataset.duration);
+        tl.fromTo(
+          id,
+          { y: 30, scale: 0.92, opacity: 0 },
+          { y: 0, scale: 1, opacity: 1, duration: 0.34, ease: "power2.out" },
+          start,
+        );
+        tl.to(id, { opacity: 0, y: -10, duration: 0.24, ease: "power1.in" }, start + duration - 0.24);
+      });
+
+      ["#m1", "#m2"].forEach((id) => {
+        const el = document.querySelector(id);
+        const start = Number(el.dataset.start);
+        const duration = Number(el.dataset.duration);
+        tl.fromTo(
+          id,
+          { scale: 0.8, y: 12, opacity: 0 },
+          { scale: 1, y: 0, opacity: 1, duration: 0.32, ease: "power2.out" },
+          start,
+        );
+        tl.to(id, { y: -8, duration: 0.9, repeat: 1, yoyo: true, ease: "sine.inOut" }, start + 0.25);
+        tl.to(id, { opacity: 0, duration: 0.22, ease: "power1.in" }, start + duration - 0.22);
+      });
+
+      ["#s1", "#s2"].forEach((id) => {
+        const el = document.querySelector(id);
+        const start = Number(el.dataset.start);
+        const duration = Number(el.dataset.duration);
+        tl.fromTo(
+          id,
+          { scale: 0.7, opacity: 0, rotation: -8 },
+          { scale: 1, opacity: 1, rotation: 0, duration: 0.24, ease: "power2.out" },
+          start,
+        );
+        tl.to(id, { y: -18, scale: 1.04, duration: 0.8, ease: "power1.out" }, start + 0.2);
+        tl.to(id, { opacity: 0, scale: 0.88, duration: 0.2, ease: "power2.in" }, start + duration - 0.2);
+      });
+
+      tl.fromTo("#boom", { scale: 0.9, y: 16, opacity: 0 }, { scale: 1, y: 0, opacity: 1, duration: 0.25, ease: "power2.out" }, 59.00);
+      tl.to("#boom", { opacity: 0, duration: 0.3, ease: "power2.in" }, 59.58);
+      tl.fromTo("#accent-a", { x: -46, y: 0, opacity: 0.3 }, { x: 38, y: -26, opacity: 0.65, duration: 6.2, repeat: -1, yoyo: true, ease: "sine.inOut" }, 0);
+      tl.fromTo("#accent-b", { x: 52, y: 18, opacity: 0.24 }, { x: -34, y: -18, opacity: 0.52, duration: 7.2, repeat: -1, yoyo: true, ease: "sine.inOut" }, 0);
+
+      window.__timelines["clip-subtle"] = tl;
+    </script>
+  </body>
+</html>
