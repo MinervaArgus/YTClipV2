@@ -6,5 +6,7 @@ __pycache__/
 video/full.mp4
 assets/*.mp4
 Outputs/clean/*.mp4
-
+out/*.mp4
+public/assets/*.mp4
+video/*.mp4
 *.log
